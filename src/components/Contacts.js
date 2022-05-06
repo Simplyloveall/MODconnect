@@ -12,6 +12,29 @@ function Contacts() {
     // IsColleague: false,
   });
 
+  // const addContact = () => {
+  //   setContacts([...contacts, contact]);
+  // };
+
+  function addContact(){
+    setContacts(contacts.concat(contact))
+    console.log(contact)
+  }
+
+        // function addToContacts() {
+      //   setContacts(contacts.concat(contact));
+
+
+  const handleChange = (event) => {
+    setContact({ ...contact, [event.target.name]: event.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    console.log('this')
+    e.preventDefault();
+    addContact(contact);
+    setContact({ firstName: "", lastName: "", phoneNumber: 0, address: '' });
+  };
   // function addNewContact(contact) {
   //   contact = {
   //     firstName: { firstName },
@@ -21,50 +44,50 @@ function Contacts() {
   //   };
   // }
 
-  function addContact() {
-    if (contacts.length > 0) {
-      setContacts(contacts.concat(contact));
+  // function addContact() {
+  //   if (contacts.length > 0) {
+  //     setContacts(contacts.concat(contact));
 
-      console.log(addNewContact(info));
+  //     console.log(addNewContact(info));
 
-      // function addToContacts() {
-      //   setContacts(contacts.concat(contact));
-    }
+  //     // function addToContacts() {
+  //     //   setContacts(contacts.concat(contact));
+  //   }
 
     return (
       <div>
-        <form onSubmit={addNewContact}>
+        <form onSubmit={handleSubmit}>
           <h3>First Name</h3>
           <input
-            onChange={(e) => setContact(e.target.value)}
+            onChange={handleChange}
             type="text"
             name="firstName"
-            value={firstName}
+            value={contact.firstName}
           ></input>
           <input
-            onChange={(e) => setContact(e.target.value)}
+            onChange={handleChange}
             type="text"
             name="lastName"
-            value={lastName}
+            value={contact.lastName}
           ></input>
           <input
-            onChange={(e) => setContact(e.target.value)}
+            onChange={handleChange}
             type="number"
             name="phoneNumber"
-            value={phoneNumber}
+            value={contact.phoneNumber}
           ></input>
           <input
-            onChange={(e) => setContact(e.target.value)}
+            onChange={handleChange}
             type="text"
             name="address"
-            value={address}
+            value={contact.address}
           ></input>
-          <input
-            onChange={(e) => setContact(e.target.value)}
+          {/* <input
+            onChange={handleChange}
             type="boolean"
             name="colleague"
             // value={colleague}
-          ></input>
+          ></input> */}
           <button type="button">Add a new Contact</button>
         </form>
         {contacts.map((contact) => {
@@ -79,6 +102,8 @@ function Contacts() {
         })}
       </div>
     );
-  }
+  
 }
+
+
 export default Contacts;
