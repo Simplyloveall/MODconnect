@@ -1,55 +1,45 @@
-import React from 'react'
+import React from "react";
+import TextInput from "./TextInput";
+import { useNavigate } from "react-router-dom";
 
-function SignUp() {
+const Signup = () => {
+  const [username, setUsername] = React.useState("");
+  const [password, setPassword] = React.useState("");
+  const [confirmPassword, setConfirmPassword] = React.useState("");
+  const [errorMessage, setErrorMessage] = React.useState("");
 
+  const navigate = useNavigate();
 
-    let [username, setUsername] = React.useState('')
-    let [password, setPassword] = React.useState('')
-    let [errormessage, setErrormessage] = React.useState('')
+  function checkFields(e) {
+    e.preventDefault();
+    navigate("/profile");
+  
+  }
 
+  return (
+    <>
+      <h2 style={{ textAlign: "center" }}>Signup</h2>
+      <form onSubmit={checkFields} style={{ textAlign: "center" }}>
+        <TextInput
+          action={(e) => setUsername(e.target.value)}
+          name="username"
+          value={username}
+        />
+        <TextInput
+          action={(e) => setPassword(e.target.value)}
+          value={password}
+          name="password"
+        />
+        <TextInput
+          action={(e) => setConfirmPassword(e.target.value)}
+          value={confirmPassword}
+          name="confirmPassword"
+        />
+        <button>Create</button>
+        <p>{errorMessage}</p>
+      </form>
+    </>
+  );
+};
 
-    //Username is at least 4 characters
-    //Passowrd is at least 6 characters
-    //Password can't be 'password'
-
-    function checkFields(e) {
-        e.preventDefault();
-        if (username.length < 4) {
-            setErrormessage('username is too short')
-        } else if (password.length < 6) {
-            setErrormessage('password must be at least 6 characters')
-        } else if (password.length === 'password') {
-            setErrormessage("your password can't be 'passowrd'")
-        } else {
-            setErrormessage(`welcome ${username}`)
-        }
-        
-    }
-
-
-
-    return (
-
-        <div>
-
-            <form onSubmit={checkFields}> 
-
-            <label>Username</label>
-            <input name='username' onChange={(e)=>setUsername(e.target.value)} value={username}/>
-            <label>Password</label>
-            <input name='password' onChange={(e)=>setPassword(e.target.value)} value={password}/>
-            <button>Create</button>
-
-            <p>{errormessage}</p>
-
-
-
-            </form>
-
-
-        </div>
-
-    )
-}
-
-export default SignUp
+export default Signup;
