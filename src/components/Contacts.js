@@ -25,8 +25,8 @@ function Contacts() {
       //   setContacts(contacts.concat(contact));
 
 
-  const handleChange = (event) => {
-    setContact({ ...contact, [event.target.name]: event.target.value });
+  const handleChange = (e) => {
+    setContact({ ...contact, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = (e) => {
@@ -56,7 +56,7 @@ function Contacts() {
 
     return (
       <div>
-        <form onSubmit={handleSubmit}>
+        <form >
           <h3>First Name</h3>
           <input
             onChange={handleChange}
@@ -88,7 +88,7 @@ function Contacts() {
             name="colleague"
             // value={colleague}
           ></input> */}
-          <button type="button">Add a new Contact</button>
+          <button onClick={handleSubmit} type="button">Add a new Contact</button>
         </form>
         {contacts.map((contact) => {
           return (
