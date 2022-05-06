@@ -36,6 +36,24 @@
     transform: rotate(360deg);
   }
  Background{
- background-image: url("");
+ background-image: url("https://www.bigstockphoto.com/image-242966671/stock-photo-template-for-contacts%2C-background-for-contact-information-lettering-contact-us-in-notebook-on-offic");
+ height: 100vh;
+ background-repeat:no-repeat; 
  }
+ /* .navbar{
+  display: inline;
+  text-align:right;
+  font-size: 150%;
+  margin-right: 15%;
+  margin-bottom: 20px;
+  color: #00B7FF;
+  flex-wrap: wrap;
+  position: relative;
+  display: flex;
+  align-items: center;
+  
+  padding: 0.5rem 1rem;
+  -webkit-box-align: center;
+} */
+
 }
