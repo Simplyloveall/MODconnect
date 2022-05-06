@@ -2,9 +2,11 @@ import React from "react";
 import { Routes, Route, Link } from "react-router-dom";
 import "./App.css";
 import About from "./components/AboutUs";
+import SignUp from "./components/SignUp";
 
 function App() {
   return (
+
    <div> 
 
     <header> 
@@ -21,7 +23,15 @@ function App() {
 
 
     
-      <Routes></Routes>
+
+
+    <div>
+      <Routes>
+
+
+        
+      </Routes>
+
     </div>
   );
 }
